@@ -12,6 +12,8 @@ namespace ConsoleUI
         static void Main(string[] args)
         {
             //List of cards
+            //Cards are numbered from 2 to 12. This is to simulate rolling 2 normal dice.
+            //Cards can have different events despite being the same number.
             string[] cardNum = {"2\nPlentiful Year\nEach player may take 1 resource of his choice.",
                 "12\nCalm Seas\nThe player(s) with the most harbors receives 1 resource card of his choice.",
                 "3\nConflict\nThe player with the \"Largest Army\" card (if not claimed, each player with the most soldier cards) takes 1 resource card at random from any one player.",
@@ -37,6 +39,7 @@ namespace ConsoleUI
                 "7\nRobber Attacks!\n1. Each player with more than 7 cards must discard half (rounded down).\n2. Move the robber. Draw a random resource card from any 1 player with a settlement and/ore city next to the robber's new hex.",
                 "7\nRobber Attacks!\n1. Each player with more than 7 cards must discard half (rounded down).\n2. Move the robber. Draw a random resource card from any 1 player with a settlement and/ore city next to the robber's new hex." };
 
+            //Shuffle the cards
             Random rnd = new Random();
             string[] cardNumRandom = cardNum.OrderBy(x => rnd.Next()).ToArray();
 
@@ -51,6 +54,7 @@ namespace ConsoleUI
             {
                 if (i == 30)
                 {
+                    //New Year card
                     Console.WriteLine("New Year\n" +
                         "Event cards have been shuffled.\n" +
                         "5 event cards have been placed face down with the New Year card on top.\n" +
